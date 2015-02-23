@@ -14,7 +14,8 @@
             login: login,
             register: register,
             setAuthenticatedAccount: setAuthenticatedAccount,
-            unauthenticate: unauthenticate
+            unauthenticate: unauthenticate,
+            logout: logout
         };
         return Authentication;
 
@@ -47,6 +48,20 @@
 
             function loginFailureFn(data, status, headers, config) {
                 console.error('Login error')
+            }
+        }
+
+        function logout() {
+            return $http.post('api/v1/auth/logout/')
+                .then(logoutSuccessFn, logoutFailureFn);
+
+            function logoutSuccessFn(data, status, headers, config) {
+                Authentication.unauthenticate();
+                window.location = '/'
+            }
+
+            function logoutFailureFn(data, status, headers, config) {
+                console.error('Logout error')
             }
         }
 
