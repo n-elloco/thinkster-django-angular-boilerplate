@@ -66,7 +66,7 @@
         }
 
         function getAuthenticatedAccount() {
-            if ($cookies.authenticatedAccount) {
+            if (!$cookies.authenticatedAccount) {
                 return
             }
 
