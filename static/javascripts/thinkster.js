@@ -5,6 +5,7 @@ angular
         'thinkster.authentication',
         'thinkster.layout',
         'thinkster.posts',
+        'thinkster.profiles',
         'thinkster.utils'
     ])
     .run(run);
